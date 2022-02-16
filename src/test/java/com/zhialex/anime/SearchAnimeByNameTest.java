@@ -12,7 +12,7 @@ public class SearchAnimeByNameTest extends BaseTest {
             "Naruto, Это мой путь ниндзя!",
             "Steins;Gate, Сняв в Акихабаре квартиру"
     })
-    @ParameterizedTest(name = "Проверка, что выбирается верный жанр : {0}")
+    @ParameterizedTest(name = "Проверка, что находится нужное аниме : {0}")
     public void searchAnimeByNameTest(String animeName, String description) {
         open("https://smotret-anime.online/");
         $x("//div[@class='card']//a[text()='Поиск по названию']").click();
