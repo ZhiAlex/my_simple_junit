@@ -14,8 +14,8 @@ public class SearchAnimeByNameTest extends BaseTest {
 
     static Stream<Arguments> commonSearchDataProvider() {
         return Stream.of(
-                Arguments.of("Naruto", "Это мой путь ниндзя!"),
-                Arguments.of("Steins;Gate", "Сняв в Акихабаре квартиру")
+                Arguments.of("Karakai Jouzu", "В классе Нисикаты учится девочка по имени Такаги."),
+                Arguments.of("Vanitas no Karte", "Быть белой вороной может не только обычный человек, но и вампир.")
         );
     }
 
