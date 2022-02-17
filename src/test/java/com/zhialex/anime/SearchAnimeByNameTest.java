@@ -28,7 +28,7 @@ public class SearchAnimeByNameTest extends BaseTest {
         open("https://smotret-anime.online/");
         $x("//div[@class='card']//a[text()='Поиск по названию']").click();
         $(".row .m-big-search-input").setValue(animeName).pressEnter();
-        $$(".m-catalog-item__description").first().shouldHave(text(description));
+        $x("(//div[@class='m-catalog-item__description'])[1]").shouldHave(text(description));
     }
 
     @MethodSource("commonSearchDataProvider")
@@ -37,6 +37,6 @@ public class SearchAnimeByNameTest extends BaseTest {
         open("https://smotret-anime.online/");
         $x("//div[@class='card']//a[text()='Поиск по названию']").click();
         $(".row .m-big-search-input").setValue(animeName).pressEnter();
-        $$(".m-catalog-item__description").first().shouldHave(text(description));
+        $x("(//div[@class='m-catalog-item__description'])[1]").shouldHave(text(description));
     }
 }
