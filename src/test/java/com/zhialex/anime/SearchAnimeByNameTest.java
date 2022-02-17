@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class SearchAnimeByNameTest extends BaseTest {
@@ -25,18 +26,16 @@ public class SearchAnimeByNameTest extends BaseTest {
     })
     @ParameterizedTest(name = "Проверка, что находится нужное аниме : {0}")
     public void searchAnimeByNameTest(String animeName, String description) {
-        open("https://smotret-anime.online/");
-        $x("//div[@class='card']//a[text()='Поиск по названию']").click();
+        open("https://smotret-anime.online/catalog/search");
         $(".row .m-big-search-input").setValue(animeName).pressEnter();
-        $x("(//div[@class='m-catalog-item__description'])[1]").shouldHave(text(description));
+        $$x("//div[@class='m-catalog-item__description']").findBy(text(description)).shouldBe(visible);
     }
 
     @MethodSource("commonSearchDataProvider")
     @ParameterizedTest(name = "Проверка, что находится нужное аниме")
     public void searchAnimeByNameWithMethodSourceTest(String animeName, String description) {
-        open("https://smotret-anime.online/");
-        $x("//div[@class='card']//a[text()='Поиск по названию']").click();
+        open("https://smotret-anime.online/catalog/search");
         $(".row .m-big-search-input").setValue(animeName).pressEnter();
-        $x("(//div[@class='m-catalog-item__description'])[1]").shouldHave(text(description));
+        $$x("//div[@class='m-catalog-item__description']").findBy(text(description)).shouldBe(visible);
     }
 }
